@@ -27,3 +27,12 @@ else {
 }
 }
 module.exports=regestrationController
+
+
+// 
+
+
+// pass GeSnnulI086ZTLDv
+// user arot
+// uri mongodb+srv://arot:<db_password>@cluster0.vlxcwao.mongodb.net/?appName=Cluster0
+// 
