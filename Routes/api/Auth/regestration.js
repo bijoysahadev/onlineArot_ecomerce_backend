@@ -5,5 +5,5 @@ const regestrationController = require("../../../Controllers/regestrationControl
 
 
 
-router.get("/regestration",regestrationController)
+router.post("/regestration",regestrationController)
 module.exports=router

@@ -1,6 +1,12 @@
-const regestrationController =(req,res)=> {
 
-res.send("Ami Regestration Controller thike bolchi")
+// this is post method
+const regestrationController =(req,res)=> {
+    
+
+    
+
+console.log(req.body);
+
 
 }
 module.exports=regestrationController
