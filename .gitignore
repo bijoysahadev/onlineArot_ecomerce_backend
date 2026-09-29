@@ -1,0 +1,71 @@
+# ==========================================
+# Environment Variables & Secrets (CRITICAL)
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.env
+*.secrets
+config/secrets.yml
+
+# ==========================================
+# Dependencies
+# ==========================================
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# Java / Maven / Gradle
+target/
+.gradle/
+build/
+
+# Go / Rust
+/bin/
+/dist/
+target/
+
+# PHP / Composer
+/vendor/
+
+# ==========================================
+# Databases & Logs
+# ==========================================
+*.log
+*.sqlite
+*.sqlite3
+db.sqlite3
+
+# ==========================================
+# IDEs & System Files
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
