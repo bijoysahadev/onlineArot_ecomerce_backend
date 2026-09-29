@@ -1,10 +1,7 @@
 # ==========================================
 # Environment Variables & Secrets (CRITICAL)
 # ==========================================
-.env
-.env.local
-.env.*.local
-*.env
+
 *.secrets
 config/secrets.yml
 
