@@ -1,9 +1,10 @@
+const userSchema = require("../Models/userSchema")
 const emailRegex = require("../utilies/emailRegex")
 const passewordRegex = require("../utilies/passwordRegex")
 
 
 // this is post method
-const regestrationController =(req,res)=> {
+const regestrationController = async (req,res)=> {
     
   let {userName,email,password}=req.body
 
@@ -22,8 +23,27 @@ else if (!password){
 }
 
 else {
-    console.log(req.body);
     
+    let existingUser = await userSchema.find({email:email})
+   console.log(existingUser);
+   if (existingUser.length>0){
+    console.log("age thike data ase");
+    res.send("Age thike data Ase")
+    
+   }
+   else {
+console.log(req.body);
+     const data = new userSchema({
+        userName,
+        password,
+        email,
+    })
+    data.save()
+    res.send(req.body)
+
+
+
+   }
 }
 }
 module.exports=regestrationController
