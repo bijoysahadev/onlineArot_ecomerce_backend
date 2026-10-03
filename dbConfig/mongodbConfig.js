@@ -10,3 +10,5 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 
 }
 module.exports=mongodbConfig
+
+

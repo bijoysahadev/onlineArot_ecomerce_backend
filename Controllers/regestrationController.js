@@ -24,11 +24,11 @@ const regestrationController = async (req, res) => {
 
     else {
 
-        let existingUser = await userSchema.find({ email: email })
+        let existingUser = await userSchema.find({email:email })
         console.log(existingUser);
         if (existingUser.length > 0) {
             console.log("age thike data ase");
-            res.send("Age thike data Ase")
+            res.send("Data exits Already")
 
         }
         else {
@@ -45,7 +45,9 @@ const regestrationController = async (req, res) => {
                 // res.send(req.body)
                 res.send({
                     userName: data.userName,
-                    emai: data.email
+                    email: data.email,
+                    success : "data sent Succssfully"
+                   
                 })
 
             });

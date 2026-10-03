@@ -3,10 +3,12 @@ const express = require('express');
 const  route  = require('./Routes');
 const mongodbConfig = require('./dbConfig/mongodbConfig');
 const app = express()
+const cors = require("cors")
 const port = 3000
-
+app.use(cors());
 app.use(express.json())
 app.use(route)
+
 mongodbConfig()
 app.get('/', (req, res) => {
   res.send('Hello World!')
