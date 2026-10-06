@@ -1,5 +1,6 @@
 const userSchema = require("../Models/userSchema")
-const emailRegex = require("../utilies/emailRegex")
+const emailRegex = require("../utilies/emailRegex");
+const emailSender = require("../utilies/emailSender");
 const passewordRegex = require("../utilies/passwordRegex")
 const bcrypt = require('bcrypt');
 const otpGenerator = require('otp-generator')
@@ -36,7 +37,7 @@ const regestrationController = async (req, res) => {
         }
         else {
 
-            bcrypt.hash(password, 10, function (err, hash) {
+            bcrypt.hash(password, 10,   function (err, hash) {
                 console.log(hash);
                 console.log(req.body);
                 let otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, specialChars: false, lowerCaseAlphabets: false });
@@ -46,7 +47,8 @@ const regestrationController = async (req, res) => {
                     userName: userName,
                     password: hash,
                     email: email,
-                    otp : otp
+                    otp: otp,
+                   
                 })
                 data.save()
                 // res.send(req.body)
@@ -56,7 +58,13 @@ const regestrationController = async (req, res) => {
                     success: "data sent Succssfully"
 
                 })
+                // send email verfication using nodemailer
 
+ emailSender(email)
+
+
+                // Create a transporter using SMTP
+            
             });
             // console.log(req.body);
             //      const data = new userSchema({
