@@ -2,6 +2,9 @@ const userSchema = require("../Models/userSchema")
 const emailRegex = require("../utilies/emailRegex")
 const passewordRegex = require("../utilies/passwordRegex")
 const bcrypt = require('bcrypt');
+const otpGenerator = require('otp-generator')
+
+
 
 // this is post method
 const regestrationController = async (req, res) => {
@@ -24,7 +27,7 @@ const regestrationController = async (req, res) => {
 
     else {
 
-        let existingUser = await userSchema.find({email:email })
+        let existingUser = await userSchema.find({ email: email })
         console.log(existingUser);
         if (existingUser.length > 0) {
             console.log("age thike data ase");
@@ -33,21 +36,25 @@ const regestrationController = async (req, res) => {
         }
         else {
 
-           bcrypt.hash( password, 10, function (err, hash) {
+            bcrypt.hash(password, 10, function (err, hash) {
                 console.log(hash);
                 console.log(req.body);
+                let otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, specialChars: false, lowerCaseAlphabets: false });
+                console.log(otp);
+
                 const data = new userSchema({
-                    userName:userName,
-                    password:hash,
-                    email:email,
+                    userName: userName,
+                    password: hash,
+                    email: email,
+                    otp : otp
                 })
                 data.save()
                 // res.send(req.body)
                 res.send({
                     userName: data.userName,
                     email: data.email,
-                    success : "data sent Succssfully"
-                   
+                    success: "data sent Succssfully"
+
                 })
 
             });

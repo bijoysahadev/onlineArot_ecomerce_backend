@@ -12,6 +12,10 @@ password : {
 email : {
     type : String,
     require: true
+},
+otp : {
+    type:Number,
+
 }
 })
 module.exports=mongoose.model("UserList",userSchema)
