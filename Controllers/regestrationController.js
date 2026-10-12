@@ -48,6 +48,7 @@ const regestrationController = async (req, res) => {
                     password: hash,
                     email: email,
                     otp: otp,
+                    
                    
                 })
                 data.save()
@@ -60,7 +61,7 @@ const regestrationController = async (req, res) => {
                 })
                 // send email verfication using nodemailer
 
- emailSender(email)
+ emailSender(email,otp)
 
 
                 // Create a transporter using SMTP

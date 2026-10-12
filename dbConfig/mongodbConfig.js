@@ -11,4 +11,6 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 }
 module.exports=mongodbConfig
 
+////  mongodb+srv://arot:GeSnnulI086ZTLDv@cluster0.vlxcwao.mongodb.net/?appName=Cluster0
+
 

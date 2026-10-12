@@ -16,6 +16,10 @@ email : {
 otp : {
     type:Number,
 
+},
+emailVerification : {
+    type : Boolean,
+    default :false
 }
 })
 module.exports=mongoose.model("UserList",userSchema)

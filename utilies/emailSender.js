@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 
 
 
-const emailSender  = async (email)=> {
+const emailSender  = async (email,opt)=> {
 
 
     const transporter = nodemailer.createTransport({
@@ -20,7 +20,7 @@ const emailSender  = async (email)=> {
                     to:  email, // list of recipients
                     subject: "Email Verfication", // subject line
                     text: "Hello world?", // plain text body
-                    html: `<div style="width:500px;height:400px;background:#0ff;border-radius:10px;padding:20px 40px;text-align:center"><h1>This is Email Verfication</h1><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, iure. Quaerat quam facilis animi iste esse mollitia qui, repellat culpa?</p><button style="background-color:#00f;padding:20px 40px;border-radius:10px;border:0;color:#fff">Verify Email</button></div>`, // HTML body
+                    html: `<div style="width:500px;height:400px;background:#0ff;border-radius:10px;padding:20px 40px;text-align:center"><h1>This is Email Verfication</h1><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, iure. Quaerat quam facilis animi iste esse mollitia qui, repellat culpa?</p><p style="background-color:#00f;padding:20px 40px;border-radius:10px;border:0;color:#fff">${opt}</p></div>`, // HTML body
                 });
                 // 
 
