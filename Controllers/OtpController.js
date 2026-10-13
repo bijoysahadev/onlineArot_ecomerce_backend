@@ -8,18 +8,26 @@ const OtpController = async (req, res) => {
 
     let { otp,email } = req.body
 let existingdata =await userSchema.find({email:email})
+    console.log(existingdata[0]);
      
-console.log(existingdata[0].otp);
+
 if(existingdata.length>0){
     if (existingdata[0].otp==otp) {
-    res.send("OTP peo gache")
+        await userSchema.findOneAndUpdate({email:email},{
+            otp:"",
+        })
+        await userSchema.findOneAndUpdate({email:email},{
+            emailVerification:true,
+        })
+      
+    res.send({success:"OTP match"})
 }
 else {
-    res.send("OTP PAI NAi")
+    res.send({error:"OTP not match"})
 }
 }
 else {
-    res.send("please create an account")
+    res.send({error:"Invalid Cradentials"})
 }
 };
 
