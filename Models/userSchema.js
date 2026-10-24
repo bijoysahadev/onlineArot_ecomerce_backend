@@ -14,7 +14,7 @@ email : {
     required: true
 },
 otp : {
-    type:Number,
+    type:String,
 
 },
 emailVerification : {

@@ -12,7 +12,9 @@ let existingdata =await userSchema.find({email:email})
      
 
 if(existingdata.length>0){
-    if (existingdata[0].otp==otp) {
+ if(!existingdata[0].emailVerification){
+  
+      if (existingdata[0].otp==otp) {
         await userSchema.findOneAndUpdate({email:email},{
             otp:"",
         })
@@ -25,6 +27,10 @@ if(existingdata.length>0){
 else {
     res.send({error:"OTP not match"})
 }
+ }
+ else {
+     res.send({error:"Time expired"})
+ }
 }
 else {
     res.send({error:"Invalid Cradentials"})
