@@ -3,8 +3,11 @@ const router=express.Router()
 const Otp=require("./Auth/Otp")
 const regestration=require("./Auth/regestration")
 const login =require("./Auth/login")
-
+const forgetpassword =require("../api/Auth/ForgetPassword")
+const changePassword=require("../api/Auth/ChangePassword")
 router.use("/authentication",regestration)
 router.use("/authentication",login)
 router.use("/authentication",Otp)
+router.use("/authentication",forgetpassword)
+router.use("/authentication",changePassword)
 module.exports=router
