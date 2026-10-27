@@ -32,7 +32,17 @@ const LoginController = async (req, res) => {
           }
           else {
             if (result) {
-              res.send({ success: "Login Succesfull" });
+              res.send({
+                success: "Login Succesfull",
+                email: existingData[0].email,
+                id:existingData[0]._id,
+                userName:existingData[0].userName,
+               emailVerfication:existingData[0].emailVerification,
+
+
+            
+              });
+
 
             }
             else {
@@ -44,7 +54,7 @@ const LoginController = async (req, res) => {
         });
       }
       else {
-        res.send({error: "Please Verify Your Email First" })
+        res.send({ error: "Please Verify Your Email First" })
       }
 
 
